@@ -1,14 +1,14 @@
 import express from 'express';
 import 'dotenv/config';
-import { PrismaClient } from '@prisma/client'
+import post from './routes/post.js'
 
 const app = express()
 const port = process.env.PORT || 5000;
 
-const prisma = new PrismaClient();
+app.use('/post', post);
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Backend')
 })
 
 app.listen(port, () => {
